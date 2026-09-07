@@ -297,12 +297,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 }
 
 
-/* Three-color system: source black, white, and the existing cherry red. */
-.hero-stage__image, .dawn-section__image, .photo-card__image, .lightbox__image img { filter: grayscale(1) contrast(1.04); }
+/* Keep the header poster in its original color; retain the editorial treatment elsewhere. */
+.dawn-section__image, .photo-card__image, .lightbox__image img { filter: grayscale(1) contrast(1.04); }
 
 
-/* Three-color system: source black, white, and the existing cherry red. */
-.hero-stage__image, .dawn-section__image, .photo-card__image, .lightbox__image img { filter: grayscale(1) contrast(1.04); }
+/* Keep the header poster in its original color; retain the editorial treatment elsewhere. */
+.dawn-section__image, .photo-card__image, .lightbox__image img { filter: grayscale(1) contrast(1.04); }
 
 
 /* Sealed letter reveal */
