@@ -263,7 +263,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
   .hero-copy__small { max-width: 9rem; line-height: 1.45; }
   .scroll-cue { flex-direction: column; align-items: flex-end; gap: .2rem; }
   .hero-stage__folio { right: 1.35rem; bottom: 1.35rem; }
-  .letter-section__inner { width: calc(100% - 3rem); padding-top: 6.5rem; }
+  .letter-section__inner { width: calc(100% - 3rem); padding: 2rem 0 1rem; }
   .letter-aside h2 { font-size: clamp(3.4rem, 18vw, 5.6rem); }
   .letter-copy p { font-size: 1rem; line-height: 1.72; }
   .letter-copy__closing { margin-top: 3.5rem !important; }
