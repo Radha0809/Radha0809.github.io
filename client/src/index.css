@@ -307,14 +307,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 
 /* Sealed letter reveal */
 .letter-section {
-  min-height: 100svh;
+  min-height: 0;
   overflow: hidden;
   background-color: var(--paper);
 }
 
 .letter-section__inner {
   width: min(100% - 3rem, 74rem);
-  padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(6rem, 11vw, 11rem);
+  padding: clamp(2rem, 4vw, 4rem) 0 clamp(1rem, 2vw, 2rem);
 }
 
 .sealed-letter {
