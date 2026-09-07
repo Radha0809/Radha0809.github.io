@@ -35,7 +35,7 @@ const messageParagraphs = [
     text: "And yet, you never lost the fight. But this is a war. A very long one.",
   },
   {
-    text: "A lot of time has already passed, and I know you’re tired from swinging that sword again and again. I know you're wounded and exhausted, and sometimes you probably wonder how much longer you have keep going.",
+    text: "A lot of time has already passed, and I know you’re tired from swinging that sword again and again. I know you're wounded and exhausted, and sometimes you probably wonder how much longer you have to keep going.",
   },
   {
     text: "But listen —",
