@@ -1542,7 +1542,7 @@ body:has(.realistic-letter.is-open)::before {
 .realistic-letter.is-open .realistic-letter__paper {
   left: calc(4% - 10px);
   width: calc(92% + 20px);
-  height: calc(100% + 200px);
+  height: calc(100% + 100px);
 }
 .realistic-letter.is-open .realistic-letter__paper > img {
   width: 100%;
