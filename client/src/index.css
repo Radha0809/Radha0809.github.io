@@ -189,7 +189,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 .dawn-section__number { position: absolute; top: 4rem; right: 0; color: rgba(255, 255, 255, .7); font-size: .65rem; letter-spacing: .18em; }
 
 .album-section { position: relative; height: calc(var(--album-travel, 0px) + 100svh); min-height: 100svh; padding: 0; background: linear-gradient(180deg, var(--paper) 0%, var(--orchid-mist) 48%, var(--paper) 100%); }
-.album-sticky { position: relative; position: sticky; top: 0; display: flex; min-height: 100svh; align-items: center; overflow: hidden; }
+.album-sticky { position: relative; position: sticky; top: 0; display: flex; min-height: 100svh; align-items: flex-start; padding-top: clamp(1rem, 3vw, 2.5rem); overflow: hidden; }
 .album-section__topline, .album-section__bottomline { display: flex; align-items: end; justify-content: space-between; width: min(100% - 3rem, 100rem); margin: 0 auto; }
 .album-section__topline { justify-content: flex-end; }
 .album-section h2 { margin-bottom: 0; font-size: clamp(3.4rem, 6vw, 7rem); }
@@ -271,8 +271,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
   .dawn-section__content { width: calc(100% - 3rem); padding-left: 0; }
   .dawn-section__content h2 { font-size: clamp(4.2rem, 19vw, 7rem); }
   .dawn-section__number { top: 2rem; right: 1.5rem; }
-  .album-section { height: auto; min-height: 0; padding: 4.5rem 0 4rem; }
-  .album-sticky { position: relative; min-height: 0; overflow: visible; }
+  .album-section { height: auto; min-height: 0; padding: 1rem 0 4rem; }
+  .album-sticky { position: relative; min-height: 0; padding-top: 0; overflow: visible; }
   .album-section__topline { display: block; width: calc(100% - 3rem); }
   .album-section h2 { font-size: clamp(3.5rem, 17vw, 5.5rem); }
   .album-section__controls { justify-content: flex-end; margin-top: 2.7rem; }
