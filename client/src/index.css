@@ -1557,7 +1557,7 @@ body:has(.realistic-letter.is-open)::before {
 }
 
 /* Final requested tuning: shorten the open sheet and keep 0809 infinity barely visible. */
-.realistic-letter.is-open .realistic-letter__paper { height: calc(100% - 100px); }
+.realistic-letter.is-open .realistic-letter__paper { height: calc(100% - 200px); }
 .realistic-letter.is-open .letter-page__signature { font-size: clamp(.58rem, 1vw, .78rem); }
 @media (max-width: 700px) {
   .realistic-letter.is-open .letter-page__signature { font-size: .62rem; }
