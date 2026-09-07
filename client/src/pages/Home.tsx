@@ -104,10 +104,6 @@ export default function Home() {
                 <article className="realistic-letter__paper" id="birthday-letter">
                   <img src={PAPER_IMAGE} alt="" aria-hidden="true" />
                   <div className="realistic-letter__copy">
-                    <div className="letter-page__topline">
-                      <span>For you, Shreyanshi</span>
-                      <span>0809 ∞</span>
-                    </div>
                     {messageParagraphs.map((paragraph, index) => (
                       <p key={`${paragraph.text}-${index}`} className={paragraph.emphasis ? "has-emphasis" : ""}>
                         {paragraph.text}{" "}
@@ -117,8 +113,8 @@ export default function Home() {
                     <p className="letter-copy__pause">The night will end soon.<br />The wounds will heal.<br />Until then, keep going.</p>
                     <p className="letter-copy__remember">And remember —<br /><strong>This too shall pass.</strong></p>
                     <p className="letter-copy__closing">Wishing you again a very <strong>Happy Birthday Shreyu.</strong></p>
-                    <span className="micro-mark micro-mark--letter" aria-label="0809 infinity">0809 ∞</span>
                   </div>
+                  <span className="letter-page__signature" aria-label="0809 infinity">0809 ∞</span>
                   <button type="button" className="letter-page__close" onClick={() => setLetterOpen(false)} aria-label="Close letter">Fold letter</button>
                 </article>
               </div>

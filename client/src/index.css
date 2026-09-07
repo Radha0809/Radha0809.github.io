@@ -1507,3 +1507,33 @@ body:has(.realistic-letter.is-open)::before {
   .realistic-letter.is-open .realistic-letter__paper { left: 3%; width: 94%; }
   .realistic-letter.is-open .realistic-letter__copy { font-size: .5rem; line-height: 1.28; }
 }
+
+/* Final letter typography: larger body copy and a signature directly above Fold letter. */
+.realistic-letter.is-open .realistic-letter__copy {
+  font-size: clamp(.6rem, 1.15vw, .78rem);
+  line-height: 1.4;
+}
+.realistic-letter.is-open .letter-page__signature {
+  position: absolute;
+  right: 8%;
+  bottom: 8%;
+  z-index: 5;
+  color: #6d001a;
+  font-family: "Caveat", cursive;
+  font-size: clamp(.9rem, 1.8vw, 1.25rem);
+  letter-spacing: .08em;
+}
+.realistic-letter.is-open .realistic-letter__paper .letter-page__close {
+  bottom: 3%;
+}
+@media (max-width: 700px) {
+  .realistic-letter.is-open .realistic-letter__copy {
+    font-size: .58rem;
+    line-height: 1.32;
+  }
+  .realistic-letter.is-open .letter-page__signature {
+    right: 7%;
+    bottom: 8%;
+    font-size: .9rem;
+  }
+}
