@@ -1453,3 +1453,40 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
   .realistic-letter__closed { width: calc(100% - 7rem); }
   .realistic-letter__bouquet { right: -.9rem; width: 9.5rem; }
 }
+
+/* Open letter: give the full paper room to unfold and frost the page behind it. */
+.letter-section__inner { z-index: 2; }
+.birthday-site:has(.realistic-letter.is-open) .hero-stage__sticky {
+  filter: blur(11px) saturate(.72) !important;
+}
+.birthday-site:has(.realistic-letter.is-open) .letter-section::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(12px) saturate(.72);
+  pointer-events: none;
+}
+.realistic-letter.is-open .realistic-letter__stage,
+.realistic-letter.is-open .realistic-letter__composition {
+  min-height: clamp(52rem, 92vw, 72rem);
+}
+.realistic-letter.is-open .realistic-letter__paper {
+  top: 1%;
+  left: 4%;
+  width: 92%;
+}
+.realistic-letter.is-open .realistic-letter__copy {
+  font-size: clamp(.52rem, 1vw, .68rem);
+  line-height: 1.36;
+}
+
+@media (max-width: 700px) {
+  .realistic-letter.is-open .realistic-letter__stage,
+  .realistic-letter.is-open .realistic-letter__composition {
+    min-height: 50rem;
+  }
+  .realistic-letter.is-open .realistic-letter__paper { left: 3%; width: 94%; }
+  .realistic-letter.is-open .realistic-letter__copy { font-size: .5rem; line-height: 1.28; }
+}
