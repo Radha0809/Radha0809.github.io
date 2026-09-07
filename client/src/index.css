@@ -1538,11 +1538,11 @@ body:has(.realistic-letter.is-open)::before {
   }
 }
 
-/* Requested open-page enlargement: +20px width and +200px length. */
+/* Final open-page size: +30px width with no extra length. */
 .realistic-letter.is-open .realistic-letter__paper {
   left: calc(4% - 10px);
-  width: calc(92% + 20px);
-  height: calc(100% + 100px);
+  width: calc(92% + 30px);
+  height: 100%;
 }
 .realistic-letter.is-open .realistic-letter__paper > img {
   width: 100%;
@@ -1552,6 +1552,6 @@ body:has(.realistic-letter.is-open)::before {
 @media (max-width: 700px) {
   .realistic-letter.is-open .realistic-letter__paper {
     left: calc(3% - 10px);
-    width: calc(94% + 20px);
+    width: calc(94% + 30px);
   }
 }
