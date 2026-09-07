@@ -1426,8 +1426,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 
 .realistic-letter__bouquet {
   top: calc(1% + 40px);
-  right: -1%;
-  width: clamp(15rem, 25vw, 20rem);
+  right: -4%;
+  width: clamp(14rem, 23vw, 18rem);
   opacity: 1;
   filter: drop-shadow(0 .65rem .8rem rgba(45, 23, 54, .16));
 }
@@ -1444,12 +1444,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 
   .realistic-letter__bouquet {
     top: calc(1% + 40px);
-    right: -.8rem;
-    width: clamp(11rem, 43vw, 15rem);
+    right: -1.5rem;
+    width: clamp(10rem, 38vw, 14rem);
   }
 }
 
 @media (max-width: 430px) {
   .realistic-letter__closed { width: calc(100% - 7rem); }
-  .realistic-letter__bouquet { right: -.55rem; width: 10.5rem; }
+  .realistic-letter__bouquet { right: -.9rem; width: 9.5rem; }
 }
