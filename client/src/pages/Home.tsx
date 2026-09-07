@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
 
 /**
  * Burgundy Botanical Editorial reminder:
@@ -50,33 +49,9 @@ const messageParagraphs = [
   },
 ];
 
-const photos = [
-  { file: "image1.jpg", src: asset("image1.jpg"), label: "A beginning", ratio: "tall" },
-  { file: "image2.jpg", src: asset("image2.jpg"), label: "A soft morning", ratio: "wide" },
-  { file: "image3.jpg", src: asset("image3.jpg"), label: "The little things", ratio: "square" },
-  { file: "image4.jpg", src: asset("image4.jpg"), label: "Somewhere golden", ratio: "tall" },
-  { file: "image5.jpg", src: asset("image5.jpg"), label: "A day to remember", ratio: "wide" },
-  { file: "image6.jpg", src: asset("image6.jpg"), label: "Your brightest laugh", ratio: "square" },
-  { file: "image7.jpg", src: asset("image7.jpg"), label: "A quiet favourite", ratio: "tall" },
-  { file: "image8.jpg", src: asset("image8.jpg"), label: "The view from here", ratio: "wide" },
-  { file: "image9.jpg", src: asset("image9.jpg"), label: "A little magic", ratio: "square" },
-  { file: "image10.jpg", src: asset("image10.jpg"), label: "Still blooming", ratio: "tall" },
-  { file: "image11.jpg", src: asset("image11.jpg"), label: "A beautiful pause", ratio: "wide" },
-  { file: "image12.jpg", src: asset("image12.jpg"), label: "For the next chapter", ratio: "square" },
-] as const;
-
-type Photo = (typeof photos)[number];
-
-
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const [albumTravel, setAlbumTravel] = useState(0);
   const [letterOpen, setLetterOpen] = useState(false);
-
-  const galleryRef = useRef<HTMLDivElement>(null);
-  const galleryTrackRef = useRef<HTMLDivElement>(null);
-  const albumSectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -84,72 +59,6 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    const section = albumSectionRef.current;
-    const viewport = galleryRef.current;
-    const track = galleryTrackRef.current;
-    if (!section || !viewport || !track) return;
-
-    let targetOffset = 0;
-    let currentOffset = 0;
-    let animationFrame = 0;
-    const animateTrack = () => {
-      currentOffset += (targetOffset - currentOffset) * 0.12;
-      if (Math.abs(targetOffset - currentOffset) < 0.35) currentOffset = targetOffset;
-      track.style.transform = `translate3d(${-currentOffset}px, 0, 0)`;
-      if (currentOffset !== targetOffset) {
-        animationFrame = window.requestAnimationFrame(animateTrack);
-      } else {
-        animationFrame = 0;
-      }
-    };
-    const requestTrackAnimation = () => {
-      if (!animationFrame) animationFrame = window.requestAnimationFrame(animateTrack);
-    };
-    const updateGeometry = () => {
-      const max = Math.max(0, track.scrollWidth - viewport.clientWidth);
-      setAlbumTravel(window.innerWidth > 900 ? max : 0);
-      targetOffset = Math.min(max, Math.max(0, targetOffset));
-      currentOffset = Math.min(max, Math.max(0, currentOffset));
-      if (window.innerWidth <= 900) {
-        targetOffset = 0;
-        currentOffset = 0;
-        track.style.transform = "translate3d(0, 0, 0)";
-      }
-    };
-    const syncTrackToPage = () => {
-      if (window.innerWidth <= 900) return;
-      const max = Math.max(0, track.scrollWidth - viewport.clientWidth);
-      if (!max) return;
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const progress = Math.min(1, Math.max(0, (window.scrollY - sectionTop) / max));
-      targetOffset = progress * max;
-      requestTrackAnimation();
-    };
-    updateGeometry();
-    syncTrackToPage();
-    window.addEventListener("resize", updateGeometry);
-    window.addEventListener("scroll", syncTrackToPage, { passive: true });
-    return () => {
-      window.removeEventListener("resize", updateGeometry);
-      window.removeEventListener("scroll", syncTrackToPage);
-      if (animationFrame) window.cancelAnimationFrame(animationFrame);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!selectedPhoto) return;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelectedPhoto(null);
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [selectedPhoto]);
 
   const heroProgress = Math.min(scrollY / Math.max(window.innerHeight || 800, 1), 1);
   return (
@@ -220,42 +129,6 @@ export default function Home() {
         </div>
       </section>
 
-            <section className="album-section" ref={albumSectionRef} aria-label="Photo album" style={{ "--album-travel": `${albumTravel}px` } as React.CSSProperties}>
-        <div className="album-sticky">
-          <div className="album-viewport" ref={galleryRef} aria-label="Photo album, swipe horizontally through the finite collection">
-            <div className="album-track" ref={galleryTrackRef}>
-            {photos.map((photo) => (
-              <button
-                type="button"
-                className={`photo-card photo-card--${photo.ratio}`}
-                key={photo.file}
-                onClick={() => setSelectedPhoto(photo)}
-                aria-label={`Open ${photo.file}, ${photo.label}`}
-              >
-                <span className="photo-card__matte">
-                  <span className="photo-card__placeholder">
-                    <img src={photo.src} alt="" className="photo-card__image" onError={(event) => { event.currentTarget.style.display = "none"; }} />
-                  </span>
-                </span>
-              </button>
-            ))}
-            </div>
-          </div>
-          <span className="micro-mark micro-mark--album" aria-label="0809 infinity">0809 ∞</span>
-        </div>
-      </section>
-      {selectedPhoto && (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label="Photo preview" onClick={() => setSelectedPhoto(null)}>
-          <div className="lightbox__panel" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="lightbox__close" onClick={() => setSelectedPhoto(null)} aria-label="Close photo"><X size={20} /></button>
-              <div className={`lightbox__image lightbox__image--${selectedPhoto.ratio}`}>
-                <div className="lightbox__placeholder">
-                  <img src={selectedPhoto.src} alt="" className="lightbox__photo" onError={(event) => { event.currentTarget.style.display = "none"; }} />
-                </div>
-              </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
