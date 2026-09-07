@@ -9,7 +9,7 @@ import { X } from "lucide-react";
 
 const ASSET_BASE = import.meta.env.BASE_URL;
 const asset = (name: string) => `${ASSET_BASE}assets/${name}`;
-const HERO_IMAGE = asset("shreyu-purple-orchid-hero.jpg");
+const HERO_IMAGE = asset("shreyu-purple-orchid-hero.png");
 const TEXTURE_IMAGE = "/manus-storage/shreyu-botanical-texture_da9314e2.jpg";
 const SEAL_IMAGE = asset("orchid-wax-seal-clean.png");
 const ENVELOPE_IMAGE = `${asset("envelope-home-cropped.jpg")}?v=3`;
