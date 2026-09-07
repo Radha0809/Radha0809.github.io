@@ -151,7 +151,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 .hero-stage__folio span { width: 3.8rem; height: 1px; background: currentColor; opacity: 0.55; }
 
 .letter-section { position: relative; background-color: var(--paper); background-size: 720px auto; }
-.letter-section__inner { position: relative; display: block; width: min(100% - 3rem, 86rem); margin: 0 auto; padding: clamp(5.5rem, 8vw, 9rem) 0 clamp(6rem, 10vw, 10rem); }
+.letter-section__inner { position: relative; display: block; width: min(100% - 3rem, 86rem); margin: 0 auto; padding: clamp(2rem, 4vw, 4rem) 0 clamp(2.5rem, 5vw, 5rem); }
 .section-index { position: absolute; top: 3rem; left: 0; display: flex; align-items: center; gap: 1rem; color: var(--champagne); font-size: 0.64rem; letter-spacing: 0.18em; }
 .section-stamp { display: flex; align-items: center; gap: .7rem; margin: 0 0 1.35rem; color: var(--burgundy); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; }
 .section-stamp img { width: 1.25rem; height: 1.25rem; object-fit: contain; }
@@ -1417,7 +1417,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 /* Compact letter with a taller, more natural-scale orchid bouquet. */
 .realistic-letter__stage,
 .realistic-letter__composition {
-  min-height: clamp(34rem, 62vw, 48rem);
+  min-height: clamp(30rem, 54vw, 40rem);
 }
 
 .realistic-letter__closed {
@@ -1435,7 +1435,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--orchid-deep); o
 @media (max-width: 700px) {
   .realistic-letter__stage,
   .realistic-letter__composition {
-    min-height: 35rem;
+    min-height: 31rem;
   }
 
   .realistic-letter__closed {
